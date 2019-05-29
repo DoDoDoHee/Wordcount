@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>결과</title>
+</head>
+<body>
+    <h1>당신이 입력한 텍스트는 {{size}} 단어로 구성되어 있습니다.</h1>
+    <button><a href="{%url 'home'%}">Again</a></button>
+    <hr>
+    <h2>입력한 텍스트 :</h2>
+    {{text}}
+    <hr>
+    <h2>단어 카운트 : </h2>
+    {% for k,v in dic %}
+    {{k}} : {{v}}
+    <br>
+    {%endfor%}
+
+</body>
+</html>

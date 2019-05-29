@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/wordcount.css'%}">
+    <title>메인페이지</title>
+</head>
+
+<body>
+    <h1>안녕하세요, 워드카운터입니다!</h1>
+    <h3>사용하시려면 로그인해주세요^_^</h3> 
+    <hr>
+    <hr>
+    <h3>워드카운터에 대해 알고 싶다면 <button><a href="{%url 'about'%}">ABOUT</a></button></h3>
+    <hr>
+    {% if user.is_authenticated %}
+        안녕하세요! {{user.username}}님!
+        <button><a href="{%url 'logout'%}">로그아웃</a></button>
+        <form action="{%url 'result'%}"> <!--form에서 입력한 값이 어디서 처리되는지--> 
+            <textarea cole="50" rows="10" name="fulltext"></textarea>
+            <br>
+            <input type="submit" value="제출">
+        </form>
+    {% else %}
+        <button><a href="{%url 'sign_up'%}">회원가입</a></button>
+        <button><a href="{%url 'login'%}">로그인</a></button>
+    {%endif%}
+</body>
+</html>
